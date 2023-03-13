@@ -277,7 +277,7 @@ button {
             transform: scale(1.05);
   }
   .second {
-    padding: 150px 0;
+    padding: 200px 0 150px 0;
     background: #f0f2ff;
   }
   .second .testimonial {
