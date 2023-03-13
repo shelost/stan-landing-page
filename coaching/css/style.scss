@@ -5,7 +5,9 @@ html{
 body{
     font-family: 'Plus Jakarta Sans', 'Manrope', sans-serif !important;
     color: #131F60;
-    --parallax: 0;
+    --parallax-1: 0;
+    --parallax-2: 0;
+    --parallax-3: 0;
     background: #6355FF;
     overflow-x: hidden;
 }
@@ -127,6 +129,33 @@ button{
 
     }
 
+    @mixin float-in($name, $parallax, $delay){
+        @keyframes #{$name}{
+            from{
+                opacity: 0;
+                padding-top: 60px;
+            }
+            to{
+                opacity: 1;
+                padding-top: 0;
+            }
+        }
+
+        animation: #{$name} 0.6s ease-out $delay forwards;
+    }
+
+    @keyframes float-in{
+        from{
+            opacity: 0;
+            transform: translateY(60px);
+        }
+
+        to{
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
     #stores{
         display: flex;
         justify-content: center;
@@ -144,6 +173,8 @@ button{
             height: fit-content;
             opacity: 0;
             cursor: pointer;
+            z-index: 2 !important;
+            position: relative;
 
             &:hover{
                 transform: scale(1.05);
@@ -152,35 +183,95 @@ button{
 
         #stone{
             margin-top: 60px;
-            animation: float 0.6s ease-out 0.4s forwards;
+            transform: translateY(var(--parallax-3));
+            @include float-in('float-3', var(--parallax-3), 0.4s);
         }
 
         #millie{
-            animation: float 0.6s ease-out 0.2s forwards;
+            transform: translateY(var(--parallax-1));
+            @include float-in('float-1', var(--parallax-1), 0.2s);
         }
 
         #kels{
             margin-top: 120px;
-            animation: float 0.6s ease-out 0.3s forwards;
+            transform: translateY(var(--parallax-2));
+            @include float-in('float-2', var(--parallax-2), 0.3s);
         }
     }
 
-    @keyframes float{
-        from{
-            opacity: 0;
-            transform: translateY(60px);
-        }
 
-        to{
-            opacity: 1;
-            transform: translateY(var(--parallax));
-        }
-    }
+
 
     .slide{
         background: #EbEDFF;
         width: 100vw;
 
+    }
+
+    .fifth{
+        background: #f0f2ff;
+        padding: 200px 0 100px 0;
+
+        .wall{
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2vw;
+
+            .column{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                gap: 2vw;
+            }
+
+            .profile{
+
+                width: 28vw;
+                max-width: 370px;
+                padding: 5px;
+                flex-shrink: 0;
+                background: white;
+                border-radius: 20px;
+                box-shadow: 0 50px 80px rgba(black, 0.15);
+                opacity: 0;
+                z-index: -2 !important;
+                &.instagram{
+
+                }
+            }
+
+        }
+    }
+
+    .sixth{
+        padding: 50px 0 80px 0;
+
+        .list{
+           // text-align: center;
+            list-style-type: none;
+            width: fit-content;
+            margin: auto;
+            padding: 30px 0;
+            h3{
+                font-size: 22px;
+                margin: 20px 0;
+                color: rgba(#131f60, 0.5);
+                background: white;
+                padding: 25px 40px 25px 30px;
+                border-radius: 50px;
+                box-shadow: 0px 20px 40px rgba(#00106D, 0.1);
+            }
+
+            span{
+                color: rgba(#131f60, 1);
+            }
+
+            .emoji{
+                margin-right: 10px;
+            }
+        }
     }
 
     .first{
@@ -252,8 +343,10 @@ button{
     }
 
     .second{
-        padding: 200px 0 150px 0;
-        background: #f0f2ff;
+        padding: 100px 0 100px 0;
+
+
+        background: black;
         .testimonial{
             padding: 30px;
 
@@ -264,6 +357,7 @@ button{
             align-items: center;
             justify-content: center;
             gap: 60px;
+            color: white;
 
 
             .avatar{
@@ -279,6 +373,7 @@ button{
                 width: 60%;
 
                 h1{
+                    color: rgba(#EbEDFF, 0.6);
                     font-size: 40px;
                    // color: rgba(#131F60, 0.7);
                     font-weight: 500;
@@ -288,7 +383,7 @@ button{
 
                 }
                 span{
-                    color: rgba(#131F60, 1);
+                    color: rgba(#EbEDFF, 1);
                     //text-shadow: 0px 10px 20px rgba(black, 0.2);
                     //text-decoration: underline;
                     font-style: italic;
@@ -296,14 +391,21 @@ button{
                 }
 
                 h2{
+                    font-family: 'Inter', sans-serif !important;
+                    font-size: 22px;
+                    font-weight: 500;
                     margin-top: 50px;
-                    margin-bottom: 12px;
+                    margin-bottom: 10px;
+                    color: rgba(white, 0.8);
                 }
                 h3{
-                    font-weight: 400;
+                    font-family: 'Inter', sans-serif !important;
+                    font-size: 16px;
+                    font-weight: 300;
                     letter-spacing: -0.05px;
                     margin: 0;
                     margin-bottom: 30px;
+                    color: rgba(white, 0.5);
                    // color: rgba(#131F60, 0.7);
                 }
             }
@@ -515,6 +617,34 @@ button{
 
     }
 
+
+    @mixin float-in($name, $parallax, $delay){
+        @keyframes #{$name}{
+            from{
+                opacity: 0;
+                padding-top: 60px;
+            }
+            to{
+                opacity: 1;
+                padding-top: 0;
+            }
+        }
+
+        animation: #{$name} 0.6s ease-out $delay forwards;
+    }
+
+    @keyframes float-in{
+        from{
+            opacity: 0;
+            transform: translateY(60px);
+        }
+
+        to{
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
     #stores{
         display: flex;
         justify-content: center;
@@ -530,6 +660,7 @@ button{
             height: fit-content;
             opacity: 0;
             cursor: pointer;
+            z-index: 2;
 
             &:hover{
                 transform: scale(1.05);
@@ -538,30 +669,96 @@ button{
 
         #stone{
             margin-top: 60px;
-            animation: float 0.6s ease-out 0.4s forwards;
+            transform: translateY(var(--parallax-3));
+            @include float-in('float-3', var(--parallax-3), 0.4s);
         }
 
         #millie{
-            animation: float 0.6s ease-out 0.2s forwards;
+            transform: translateY(var(--parallax-1));
+            @include float-in('float-1', var(--parallax-1), 0.2s);
         }
 
         #kels{
             margin-top: 120px;
-            animation: float 0.6s ease-out 0.3s forwards;
+            transform: translateY(var(--parallax-2));
+            @include float-in('float-2', var(--parallax-2), 0.3s);
         }
     }
 
-    @keyframes float{
-        from{
-            opacity: 0;
-            transform: translateY(60px);
-        }
+    .fifth{
+        background: #f0f2ff;
+        padding: 50px 0 50px 0;
 
-        to{
-            opacity: 1;
-            transform: translateY(var(--parallax));
+
+        .wall{
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3vw;
+
+            .column{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                gap: 3vw;
+
+                &:nth-child(3){
+                    flex-direction: row;
+                }
+            }
+
+            .profile{
+
+                width: 42vw;
+                max-width: 370px;
+                padding: 5px;
+                flex-shrink: 0;
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 50px 80px rgba(black, 0.15);
+                opacity: 0;
+                z-index: -2 !important;
+                &.instagram{
+
+                }
+            }
+
         }
     }
+
+    .sixth{
+        padding: 30px 0 30px 0;
+
+
+        .list{
+           // text-align: center;
+            list-style-type: none;
+            width: fit-content;
+            margin: auto;
+            padding: 20px 0;
+            width: 85%;
+            h3{
+                font-size: 14px;
+                margin: 20px 0;
+                color: rgba(#131f60, 0.5);
+                background: white;
+                padding: 18px 30px 18px 20px;
+                border-radius: 20px;
+                box-shadow: 0px 20px 40px rgba(#00106D, 0.1);
+            }
+
+            span{
+                color: rgba(#131f60, 1);
+            }
+
+            .emoji{
+                margin-right: 10px;
+            }
+        }
+    }
+
+
 
     .slide{
         background: #EbEDFF;
@@ -705,6 +902,7 @@ button{
     .slide_header{
         text-align: center;
         width: 70%;
+        margin: auto;
 
 
         h1{

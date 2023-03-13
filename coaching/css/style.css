@@ -5,7 +5,9 @@ html {
 body {
   font-family: 'Plus Jakarta Sans', 'Manrope', sans-serif !important;
   color: #131F60;
-  --parallax: 0;
+  --parallax-1: 0;
+  --parallax-2: 0;
+  --parallax-3: 0;
   background: #6355FF;
   overflow-x: hidden;
 }
@@ -134,6 +136,30 @@ button {
     -webkit-transform: scale(1.4);
             transform: scale(1.4);
   }
+  @-webkit-keyframes float-in {
+    from {
+      opacity: 0;
+      -webkit-transform: translateY(60px);
+              transform: translateY(60px);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+  }
+  @keyframes float-in {
+    from {
+      opacity: 0;
+      -webkit-transform: translateY(60px);
+              transform: translateY(60px);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+  }
   #stores {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -157,6 +183,8 @@ button {
     height: fit-content;
     opacity: 0;
     cursor: pointer;
+    z-index: 2 !important;
+    position: relative;
   }
   #stores img:hover {
     -webkit-transform: scale(1.05);
@@ -164,45 +192,155 @@ button {
   }
   #stores #stone {
     margin-top: 60px;
-    -webkit-animation: float 0.6s ease-out 0.4s forwards;
-            animation: float 0.6s ease-out 0.4s forwards;
+    -webkit-transform: translateY(var(--parallax-3));
+            transform: translateY(var(--parallax-3));
+    -webkit-animation: float-3 0.6s ease-out 0.4s forwards;
+            animation: float-3 0.6s ease-out 0.4s forwards;
+  }
+  @-webkit-keyframes float-3 {
+    from {
+      opacity: 0;
+      padding-top: 60px;
+    }
+    to {
+      opacity: 1;
+      padding-top: 0;
+    }
+  }
+  @keyframes float-3 {
+    from {
+      opacity: 0;
+      padding-top: 60px;
+    }
+    to {
+      opacity: 1;
+      padding-top: 0;
+    }
   }
   #stores #millie {
-    -webkit-animation: float 0.6s ease-out 0.2s forwards;
-            animation: float 0.6s ease-out 0.2s forwards;
+    -webkit-transform: translateY(var(--parallax-1));
+            transform: translateY(var(--parallax-1));
+    -webkit-animation: float-1 0.6s ease-out 0.2s forwards;
+            animation: float-1 0.6s ease-out 0.2s forwards;
+  }
+  @-webkit-keyframes float-1 {
+    from {
+      opacity: 0;
+      padding-top: 60px;
+    }
+    to {
+      opacity: 1;
+      padding-top: 0;
+    }
+  }
+  @keyframes float-1 {
+    from {
+      opacity: 0;
+      padding-top: 60px;
+    }
+    to {
+      opacity: 1;
+      padding-top: 0;
+    }
   }
   #stores #kels {
     margin-top: 120px;
-    -webkit-animation: float 0.6s ease-out 0.3s forwards;
-            animation: float 0.6s ease-out 0.3s forwards;
+    -webkit-transform: translateY(var(--parallax-2));
+            transform: translateY(var(--parallax-2));
+    -webkit-animation: float-2 0.6s ease-out 0.3s forwards;
+            animation: float-2 0.6s ease-out 0.3s forwards;
   }
-  @-webkit-keyframes float {
+  @-webkit-keyframes float-2 {
     from {
       opacity: 0;
-      -webkit-transform: translateY(60px);
-              transform: translateY(60px);
+      padding-top: 60px;
     }
     to {
       opacity: 1;
-      -webkit-transform: translateY(var(--parallax));
-              transform: translateY(var(--parallax));
+      padding-top: 0;
     }
   }
-  @keyframes float {
+  @keyframes float-2 {
     from {
       opacity: 0;
-      -webkit-transform: translateY(60px);
-              transform: translateY(60px);
+      padding-top: 60px;
     }
     to {
       opacity: 1;
-      -webkit-transform: translateY(var(--parallax));
-              transform: translateY(var(--parallax));
+      padding-top: 0;
     }
   }
   .slide {
     background: #EbEDFF;
     width: 100vw;
+  }
+  .fifth {
+    background: #f0f2ff;
+    padding: 200px 0 100px 0;
+  }
+  .fifth .wall {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 2vw;
+  }
+  .fifth .wall .column {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    gap: 2vw;
+  }
+  .fifth .wall .profile {
+    width: 28vw;
+    max-width: 370px;
+    padding: 5px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    background: white;
+    border-radius: 20px;
+    -webkit-box-shadow: 0 50px 80px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 50px 80px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    z-index: -2 !important;
+  }
+  .sixth {
+    padding: 50px 0 80px 0;
+  }
+  .sixth .list {
+    list-style-type: none;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
+    padding: 30px 0;
+  }
+  .sixth .list h3 {
+    font-size: 22px;
+    margin: 20px 0;
+    color: rgba(19, 31, 96, 0.5);
+    background: white;
+    padding: 25px 40px 25px 30px;
+    border-radius: 50px;
+    -webkit-box-shadow: 0px 20px 40px rgba(0, 16, 109, 0.1);
+            box-shadow: 0px 20px 40px rgba(0, 16, 109, 0.1);
+  }
+  .sixth .list span {
+    color: #131f60;
+  }
+  .sixth .list .emoji {
+    margin-right: 10px;
   }
   .first {
     height: 100vh;
@@ -290,8 +428,8 @@ button {
             transform: scale(1.05);
   }
   .second {
-    padding: 200px 0 150px 0;
-    background: #f0f2ff;
+    padding: 100px 0 100px 0;
+    background: black;
   }
   .second .testimonial {
     padding: 30px;
@@ -307,6 +445,7 @@ button {
         -ms-flex-pack: center;
             justify-content: center;
     gap: 60px;
+    color: white;
   }
   .second .testimonial .avatar {
     width: 300px;
@@ -323,6 +462,7 @@ button {
     width: 60%;
   }
   .second .testimonial .expo h1 {
+    color: rgba(235, 237, 255, 0.6);
     font-size: 40px;
     font-weight: 500;
     line-height: 135%;
@@ -330,19 +470,26 @@ button {
     width: 100%;
   }
   .second .testimonial .expo span {
-    color: #131f60;
+    color: #ebedff;
     font-style: italic;
     font-weight: 900;
   }
   .second .testimonial .expo h2 {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 22px;
+    font-weight: 500;
     margin-top: 50px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.8);
   }
   .second .testimonial .expo h3 {
-    font-weight: 400;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 16px;
+    font-weight: 300;
     letter-spacing: -0.05px;
     margin: 0;
     margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.5);
   }
   .second .testimonial.right {
     text-align: right;
@@ -566,6 +713,30 @@ button {
     -webkit-transform: scale(1.4);
             transform: scale(1.4);
   }
+  @-webkit-keyframes float-in {
+    from {
+      opacity: 0;
+      -webkit-transform: translateY(60px);
+              transform: translateY(60px);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+  }
+  @keyframes float-in {
+    from {
+      opacity: 0;
+      -webkit-transform: translateY(60px);
+              transform: translateY(60px);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+  }
   #stores {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -587,6 +758,7 @@ button {
     height: fit-content;
     opacity: 0;
     cursor: pointer;
+    z-index: 2;
   }
   #stores img:hover {
     -webkit-transform: scale(1.05);
@@ -594,41 +766,158 @@ button {
   }
   #stores #stone {
     margin-top: 60px;
-    -webkit-animation: float 0.6s ease-out 0.4s forwards;
-            animation: float 0.6s ease-out 0.4s forwards;
+    -webkit-transform: translateY(var(--parallax-3));
+            transform: translateY(var(--parallax-3));
+    -webkit-animation: float-3 0.6s ease-out 0.4s forwards;
+            animation: float-3 0.6s ease-out 0.4s forwards;
+  }
+  @-webkit-keyframes float-3 {
+    from {
+      opacity: 0;
+      padding-top: 60px;
+    }
+    to {
+      opacity: 1;
+      padding-top: 0;
+    }
+  }
+  @keyframes float-3 {
+    from {
+      opacity: 0;
+      padding-top: 60px;
+    }
+    to {
+      opacity: 1;
+      padding-top: 0;
+    }
   }
   #stores #millie {
-    -webkit-animation: float 0.6s ease-out 0.2s forwards;
-            animation: float 0.6s ease-out 0.2s forwards;
+    -webkit-transform: translateY(var(--parallax-1));
+            transform: translateY(var(--parallax-1));
+    -webkit-animation: float-1 0.6s ease-out 0.2s forwards;
+            animation: float-1 0.6s ease-out 0.2s forwards;
+  }
+  @-webkit-keyframes float-1 {
+    from {
+      opacity: 0;
+      padding-top: 60px;
+    }
+    to {
+      opacity: 1;
+      padding-top: 0;
+    }
+  }
+  @keyframes float-1 {
+    from {
+      opacity: 0;
+      padding-top: 60px;
+    }
+    to {
+      opacity: 1;
+      padding-top: 0;
+    }
   }
   #stores #kels {
     margin-top: 120px;
-    -webkit-animation: float 0.6s ease-out 0.3s forwards;
-            animation: float 0.6s ease-out 0.3s forwards;
+    -webkit-transform: translateY(var(--parallax-2));
+            transform: translateY(var(--parallax-2));
+    -webkit-animation: float-2 0.6s ease-out 0.3s forwards;
+            animation: float-2 0.6s ease-out 0.3s forwards;
   }
-  @-webkit-keyframes float {
+  @-webkit-keyframes float-2 {
     from {
       opacity: 0;
-      -webkit-transform: translateY(60px);
-              transform: translateY(60px);
+      padding-top: 60px;
     }
     to {
       opacity: 1;
-      -webkit-transform: translateY(var(--parallax));
-              transform: translateY(var(--parallax));
+      padding-top: 0;
     }
   }
-  @keyframes float {
+  @keyframes float-2 {
     from {
       opacity: 0;
-      -webkit-transform: translateY(60px);
-              transform: translateY(60px);
+      padding-top: 60px;
     }
     to {
       opacity: 1;
-      -webkit-transform: translateY(var(--parallax));
-              transform: translateY(var(--parallax));
+      padding-top: 0;
     }
+  }
+  .fifth {
+    background: #f0f2ff;
+    padding: 50px 0 50px 0;
+  }
+  .fifth .wall {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 3vw;
+  }
+  .fifth .wall .column {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    gap: 3vw;
+  }
+  .fifth .wall .column:nth-child(3) {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .fifth .wall .profile {
+    width: 42vw;
+    max-width: 370px;
+    padding: 5px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    background: white;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 50px 80px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 50px 80px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    z-index: -2 !important;
+  }
+  .sixth {
+    padding: 30px 0 30px 0;
+  }
+  .sixth .list {
+    list-style-type: none;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
+    padding: 20px 0;
+    width: 85%;
+  }
+  .sixth .list h3 {
+    font-size: 14px;
+    margin: 20px 0;
+    color: rgba(19, 31, 96, 0.5);
+    background: white;
+    padding: 18px 30px 18px 20px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 20px 40px rgba(0, 16, 109, 0.1);
+            box-shadow: 0px 20px 40px rgba(0, 16, 109, 0.1);
+  }
+  .sixth .list span {
+    color: #131f60;
+  }
+  .sixth .list .emoji {
+    margin-right: 10px;
   }
   .slide {
     background: #EbEDFF;
@@ -781,6 +1070,7 @@ button {
   .slide_header {
     text-align: center;
     width: 70%;
+    margin: auto;
   }
   .slide_header h1 {
     font-size: 24px;
