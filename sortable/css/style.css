@@ -1,3 +1,10 @@
+body {
+  margin: 0;
+  background: #ff2949;
+  overflow: hidden;
+  height: 100vh !important;
+}
+
 .sortable {
   display: flex;
   align-items: flex-start;
@@ -5,6 +12,7 @@
   gap: 40px;
   width: 90%;
   z-index: 6;
+  margin-bottom: -30px;
 }
 
 .handle {
@@ -25,8 +33,26 @@
   background: rgba(0, 0, 0, 0.2);
 }
 
+#loading {
+  display: none;
+}
+#loading.active {
+  display: block;
+}
+
 #main {
-  padding-bottom: 40px;
+  display: flex;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 20px;
+  width: 100vw;
+  height: 100vh;
+  padding: 50px 0;
+  overflow-y: scroll !important;
+}
+
+#container {
+  padding-bottom: 500px;
 }
 
 #sortable {
@@ -35,14 +61,12 @@
   flex-direction: column;
   align-items: center;
   width: 700px;
-  margin: auto;
-  min-height: 100vh;
-  margin-top: 20px;
-  padding-bottom: 20px;
+  margin: 0;
+  padding: 20px 0;
   gap: -20px;
 }
 #sortable img {
-  width: 95%;
+  width: 91%;
   height: 300px;
   border-radius: 10px;
   margin-bottom: -20px;
@@ -56,7 +80,7 @@
   height: 100%;
   background: white;
   border-radius: 20px;
-  transform: translateX(75px);
+  transform: translateX(60px) !important;
   box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.1);
   z-index: -3;
   transition: 0.2s ease;
@@ -69,8 +93,7 @@ textarea {
   overflow-y: hidden; /* Hide vertical scrollbar */
   resize: none; /* Disable textarea resizing */
   padding: 8px; /* Set your preferred padding */
-  margin-bottom: -40px;
-  line-height: 150%;
+  line-height: 120%;
   background: none;
 }
 textarea:focus {
@@ -81,7 +104,6 @@ textarea.title {
   font-size: 26px;
   font-weight: 700;
   letter-spacing: -0.3px;
-  margin-bottom: -100px;
 }
 textarea.price {
   font-size: 20px;
@@ -89,6 +111,22 @@ textarea.price {
   letter-spacing: -0.3px;
   margin-bottom: -100px;
   color: #6355FF;
+}
+
+input {
+  border: none;
+  font-family: "Inter", sans-serif;
+  width: 100%;
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  resize: none; /* Disable textarea resizing */
+  padding: 8px; /* Set your preferred padding */
+  line-height: 120%;
+  background: none;
+}
+input.title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
 }
 
 .payment {
@@ -112,6 +150,12 @@ textarea.price {
   gap: 15px;
 }
 
+#generate {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+}
+
 button {
   font-family: "Inter", sans-serif;
   width: 100%;
@@ -128,4 +172,107 @@ button {
 }
 button:hover {
   opacity: 0.8;
+}
+
+.side {
+  width: 180px;
+}
+
+.pink {
+  background: #ff2949;
+}
+.pink #sortable {
+  z-index: 3;
+  transition: 0.2s ease;
+}
+.pink #background {
+  background: #ff2949;
+  box-shadow: 0px 40px 300px rgba(0, 0, 0, 0.05);
+  transition: 0.2s ease;
+}
+.pink textarea {
+  color: white;
+}
+.pink textarea:focus {
+  border: none;
+  outline: none;
+}
+.pink textarea.price {
+  font-family: "Newsreader", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  margin-bottom: -100px;
+  color: #ffe065;
+}
+.pink img {
+  padding-bottom: 40px;
+}
+.pink input.title {
+  font-family: "Newsreader", sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  padding: 10px 0;
+  color: white;
+  border: none;
+  outline: none;
+}
+.pink input:focus {
+  border: none;
+  outline: none;
+}
+.pink .sortable {
+  animation: float 0.2s ease;
+  transition: 0.2s ease;
+}
+@keyframes float {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+.pink .payment {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  padding: 10px 5px;
+}
+.pink .payment h2 {
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: rgba(255, 255, 255, 0.6);
+}
+.pink .payment input {
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+  border: none;
+  padding: 20px;
+  border-radius: 10px;
+  font-weight: 400;
+  flex: 1;
+  width: 93%;
+}
+.pink .payment .flex {
+  width: 100%;
+  display: flex;
+  gap: 15px;
+}
+
+::-moz-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 1; /* Firefox */
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 1; /* Firefox */
 }/*# sourceMappingURL=style.css.map */
