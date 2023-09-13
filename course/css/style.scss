@@ -1,0 +1,363 @@
+body{
+    margin: 0;
+    background: #ff2949;
+    overflow: hidden;
+    height: 100vh !important;
+}
+
+
+.sortable{
+    display: flex;
+    align-items: flex-start;
+
+    //background: white;
+    padding: 20px;
+    gap: 40px;
+    width: 90%;
+    z-index: 6;
+    margin-bottom: -30px;
+
+
+    //transform: translateX(-60px);
+}
+
+
+.handle{
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-top: 15px;
+    border-radius: 3px;
+    cursor: move;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    .bar{
+        width: 100%;
+        height: 3px;
+        background: rgba(black, 0.2);
+    }
+}
+
+#loading{
+    display: none;
+    &.active{
+        display: block;
+    }
+}
+
+
+#main{
+    display: flex;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    gap: 20px;
+    width: 100vw;
+    height: 100vh;
+
+
+    padding: 50px 0;
+
+
+
+    overflow-y: scroll !important;
+}
+
+
+#container{
+    padding-bottom: 500px;
+}
+
+
+
+#sortable{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 700px;
+
+    margin: 0;
+    //min-height: 100vh;
+
+    //margin-top: 20px;
+
+    padding: 50px 0;
+    gap: -20px;
+
+
+    img{
+        width: 91%;
+        height: 300px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        margin-left: 10px;
+
+    }
+}
+
+#background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 87%;
+    height: 100%;
+    background: white;
+    border-radius: 20px;
+    transform: translateX(60px) !important;
+    //box-shadow: 0px 20px 60px rgba(black, 0.1);
+    z-index: -3;
+    transition: 0.2s ease;
+}
+
+textarea{
+    border: none;
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+
+    overflow-y: hidden;  /* Hide vertical scrollbar */
+    resize: none;        /* Disable textarea resizing */
+    padding: 8px;        /* Set your preferred padding */
+
+   // margin-bottom: -40px;
+
+    line-height: 120%;
+    background: none;
+
+    &:focus{
+        border: none;
+        outline: none;
+    }
+
+    &.title{
+        font-size: 26px;
+        font-weight: 700;
+        letter-spacing: -0.3px;
+    }
+
+
+
+    &.price{
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: -0.3px;
+        margin-bottom: -100px;
+        color: #6355FF;
+    }
+}
+
+
+
+
+input{
+
+    border: none;
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+
+    overflow-y: hidden;  /* Hide vertical scrollbar */
+    resize: none;        /* Disable textarea resizing */
+    padding: 10px !important;        /* Set your preferred padding */
+
+   // margin-bottom: -40px;
+
+    line-height: 120%;
+    background: none;
+
+    &.title{
+        font-size: 26px;
+        font-weight: 700;
+        letter-spacing: -0.3px;
+    }
+
+
+    &.subtitle{
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    &.subsubtitle{
+        font-size: 20px;
+        font-weight: 600;
+    }
+}
+
+
+.payment{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    padding: 10px 5px;
+
+    input{
+        background: rgba(black, 0.05);
+        outline: none;
+        border: none;
+        padding: 15px;
+        border-radius: 5px;
+        flex: 1;
+    }
+
+    .flex{
+        width: 100%;
+        display: flex;
+        gap: 15px;
+    }
+}
+
+
+
+
+button{
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    padding: 20px 0;
+    border: none;
+    outline: none;
+    background: black;
+    color: white;
+    font-size: 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.2s ease;
+    cursor: pointer;
+    &:hover{
+        opacity: 0.8;
+    }
+}
+
+#generate{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    font-weight: 500;
+    font-size: 13px;
+    width: fit-content;
+}
+
+
+
+.side{
+    width: 180px;
+}
+
+
+.pink{
+   // background: #ff2949;
+   background: white;
+
+    #sortable{
+        z-index: 3;
+        transition: 0.2s ease;
+    }
+
+    #background{
+        //background: #ff2949;
+       // box-shadow: 0px 40px 300px rgba(black, 0.05);
+        transition: 0.2s ease;
+    }
+
+
+    textarea{
+        color: black;
+        &:focus{
+            border: none;
+            outline: none;
+        }
+
+
+
+        &.price{
+            font-family: 'Newsreader', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            margin-bottom: -20px;
+            color: #0065ff;
+        }
+    }
+
+    input{
+        &.title{
+            font-family: 'Newsreader', sans-serif;
+            font-size: 52px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            padding: 10px 0;
+            color: black;
+            border: none;
+            outline: none;
+
+        }
+        &:focus{
+            border: none;
+            outline: none;
+        }
+    }
+
+
+
+    .sortable{
+        animation: float 0.2s ease;
+        transition: 0.2s ease;
+    }
+
+    @keyframes float{
+        from{
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+
+
+    .payment{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        padding: 10px 5px;
+
+        h2{
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            color: rgba(black, 0.6);
+        }
+
+        input{
+            background: rgba(white, 0.1);
+            outline: none;
+            border: none;
+            padding: 20px;
+            border-radius: 10px;
+            font-weight: 400;
+            flex: 1;
+            width: 93%;
+        }
+
+        .flex{
+            width: 100%;
+            display: flex;
+            gap: 15px;
+        }
+    }
+
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+
+    color: rgba(black, 0.3);
+    opacity: 1; /* Firefox */
+  }

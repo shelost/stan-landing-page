@@ -63,12 +63,13 @@ body {
   width: 700px;
   margin: 0;
   padding: 20px 0;
+  padding-top: 80px;
   gap: -20px;
 }
 #sortable img {
-  width: 91%;
+  width: 85%;
   height: 300px;
-  border-radius: 10px;
+  border-radius: 30px !important;
   margin-bottom: -20px;
 }
 
@@ -119,7 +120,7 @@ input {
   width: 100%;
   overflow-y: hidden; /* Hide vertical scrollbar */
   resize: none; /* Disable textarea resizing */
-  padding: 8px; /* Set your preferred padding */
+  padding: 10px !important; /* Set your preferred padding */
   line-height: 120%;
   background: none;
 }
@@ -150,12 +151,6 @@ input.title {
   gap: 15px;
 }
 
-#generate {
-  position: fixed;
-  top: 40px;
-  right: 40px;
-}
-
 button {
   font-family: "Inter", sans-serif;
   width: 100%;
@@ -172,6 +167,12 @@ button {
 }
 button:hover {
   opacity: 0.8;
+}
+
+#generate {
+  position: fixed;
+  top: 40px;
+  right: 40px;
 }
 
 .side {
@@ -202,11 +203,8 @@ button:hover {
   font-size: 28px;
   font-weight: 600;
   letter-spacing: -0.3px;
-  margin-bottom: -100px;
+  margin-bottom: -20px;
   color: #ffe065;
-}
-.pink img {
-  padding-bottom: 40px;
 }
 .pink input.title {
   font-family: "Newsreader", sans-serif;

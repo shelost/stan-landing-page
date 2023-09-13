@@ -87,13 +87,14 @@ body{
     //margin-top: 20px;
 
     padding: 20px 0;
+    padding-top: 80px;
     gap: -20px;
 
 
     img{
-        width: 91%;
+        width: 85%;
         height: 300px;
-        border-radius: 10px;
+        border-radius: 30px !important;
         margin-bottom: -20px;
     }
 }
@@ -154,7 +155,7 @@ input{
 
     overflow-y: hidden;  /* Hide vertical scrollbar */
     resize: none;        /* Disable textarea resizing */
-    padding: 8px;        /* Set your preferred padding */
+    padding: 10px !important;        /* Set your preferred padding */
 
    // margin-bottom: -40px;
 
@@ -193,11 +194,6 @@ input{
 }
 
 
-#generate{
-    position: fixed;
-    top: 40px;
-    right: 40px;
-}
 
 
 
@@ -218,6 +214,13 @@ button{
         opacity: 0.8;
     }
 }
+
+#generate{
+    position: fixed;
+    top: 40px;
+    right: 40px;
+}
+
 
 .side{
     width: 180px;
@@ -253,13 +256,13 @@ button{
             font-size: 28px;
             font-weight: 600;
             letter-spacing: -0.3px;
-            margin-bottom: -100px;
+            margin-bottom: -20px;
             color: #ffe065;
         }
     }
 
     img{
-        padding-bottom: 40px;
+        //padding-bottom: 40px;
     }
 
     input{
